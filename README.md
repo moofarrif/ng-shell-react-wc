@@ -1,80 +1,80 @@
 # React MFE in Angular Host Application
 
-Este proyecto es un ejemplo de cómo integrar un Micro Frontend (MFE) hecho en **React** como remoto dentro de una aplicación **Angular** como host, utilizando Module Federation.
+This project is an example of how to integrate a Micro Frontend (MFE) built in **React** as a remote inside an **Angular** host application using Module Federation.
 
 ---
 
-## 🏁 Inicio rápido
+## 🏁 Quick Start
 
-### 1. Levantar el shell Angular (requiere remoto ya compilado)
+### 1. Start the Angular shell (requires remote already built)
 
 ```bash
 npx nx serve wc-ng-shell
 ```
-> _Levanta la aplicación Angular host (`wc-ng-shell`). El remoto React debe estar previamente compilado._
+> _Starts the Angular host application (`wc-ng-shell`). The React remote must be previously built._
 
-### 2. Servir el remoto React en modo desarrollo
+### 2. Serve the React remote in development mode
 
 ```bash
 npx nx serve wc-react-remote
 ```
-> _Levanta el servidor de desarrollo para el MFE React remoto con hot reload._
+> _Starts the development server for the React remote MFE with hot reload._
 
 ---
 
-## ⚙️ Comandos de build
+## ⚙️ Build Commands
 
-- **Compilar el host Angular:**
+- **Build the Angular host:**
   ```bash
   npx nx build wc-ng-shell
   ```
-  > _Compila la aplicación Angular host para producción o integración._
+  > _Builds the Angular host application for production or integration._
 
-- **Compilar el remoto React:**
+- **Build the React remote:**
   ```bash
   npx nx build wc-react-remote
   ```
-  > _Compila el MFE React remoto para producción._
+  > _Builds the React remote MFE for production._
 
 ---
 
-## 📂 Estructura relevante
+## 📂 Relevant Structure
 
 - `wc-react-remote/src/remote-entry.tsx`  
-  _Punto de entrada del MFE React._
+  _Entry point for the React MFE._
 - `wc-react-remote/module-federation.config.ts`  
-  _Configuración de Module Federation para el remoto React._
+  _Module Federation configuration for the React remote._
 - `ng-shell/module-federation.config.ts`  
-  _Configuración de Module Federation para el host Angular._
+  _Module Federation configuration for the Angular host._
 - `ng-shell/src/app/app.component.ts`  
-  _Componente principal del host Angular._
+  _Main component of the Angular host._
 - `ng-shell/src/app/app.component.html`  
-  _Template principal del host Angular._
+  _Main template of the Angular host._
 
 ---
 
-## 💡 Tips y buenas prácticas
+## 💡 Tips & Best Practices
 
-- **Desarrollo local:**  
-  Puedes correr ambos servidores (`wc-ng-shell` y `wc-react-remote`) en paralelo para desarrollo.  
-  _Abre dos terminales y ejecuta los comandos de serve/build según corresponda._
+- **Local development:**  
+  You can run both servers (`wc-ng-shell` and `wc-react-remote`) in parallel for local development.  
+  _Open two terminals and run the serve/build commands as needed._
 
-- **Configuración de remotos:**  
-  Verifica que las URLs de los remotos estén correctamente configuradas en ambos archivos `module-federation.config.ts`.
+- **Remote configuration:**  
+  Make sure the remote URLs are correctly set in both `module-federation.config.ts` files.
 
 - **Hot Reload:**  
-  El remoto React soporta hot reload usando el comando `serve`.
+  The React remote supports hot reload using the `serve` command.
 
-- **Depuración:**  
-  Si tienes problemas de carga de módulos, revisa la consola del navegador y la configuración de los puertos.
+- **Debugging:**  
+  If you have issues loading modules, check the browser console and port configuration.
 
 ---
 
-## 📚 Temas cubiertos
+## 📚 Covered Topics
 
-- Angular usa **Webpack** para construir el host.
-- React usa **Rspack** para construir el remoto.
-- Ejemplo práctico de integración Angular + React vía Module Federation.
+- Angular uses **Webpack** to build the host.
+- React uses **Rspack** to build the remote.
+- Practical example of Angular + React integration via Module Federation.
 
 ---
 
